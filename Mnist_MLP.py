@@ -41,9 +41,10 @@ y_train_1hot = np_utils.to_categorical(y_train)
 y_test_1hot = np_utils.to_categorical(y_test)
 
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import Dense , Dropout
 model = Sequential()
-model.add(Dense(units=256, input_dim=784,kernel_initializer='normal',activation='relu'))
+model.add(Dense(units=1000, input_dim=784,kernel_initializer='normal',activation='relu'))
+model.add(Dropout(0.5))
 model.add(Dense(units=10,kernel_initializer='normal',activation='softmax'))
 
 print(model.summary())
